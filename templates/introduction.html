@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>À propos de moi</h3>
+        <p>Après avoir terminé mon double diplôme en fin d'année 2021
+            qui m'a permis d'avoir le diplôme d'ingénieur du département
+            Télécommunications, Services et Usages de l'INSA Lyon et 
+            un master de computer engineering avec une specialisation en IoT de 
+            l'Illinois Institute of Technology à Chicago, 
+            j'ai pris une pause de quelques mois pour me ressourcer. 
+            Je cherche maintenant mon premier emploi en France. Comme
+            je suis devenu très intéressé par le cloud, j'ai récemment passé la Certification
+            KCNA de la fondation Linux qui certifie des compétences dans le cloud et ses outils
+            notamment Kubernetes.
+        </p>
+        <p>
+          Je recherche donc un emploi qui est en rapport avec le cloud et/ou les objets connectés.
+        </p>
+        <p>Ce site a été 100% réalisé par moi-même en utilisant Flask et Bootstrap.
+          Il a été deployé en utilisant Kubernetes, Docker et une machine dans le cloud.</p>
+      </div>
+      <div class="col-sm-6 centered-column">
+        <img id="ma-photo" src="static/images/moi.jpg" width="300" height="300" class="rounded">
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+/* 
+Debug: Ajouter une bordure a tous les elements
+
+* {
+    border: 2px red solid;
+}
+*/
+
+.centered-column {
+    display: flex;
+    justify-content: center;
+}
+
+#ma-photo {
+    box-shadow: 4px 4px 4px #000000;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    padding-top: 30px;
+}

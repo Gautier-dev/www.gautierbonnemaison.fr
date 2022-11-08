@@ -1,0 +1,159 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-personal-website
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: my-personal-website
+  name: deploy-personal-website
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: personal-website
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: personal-website
+    spec:
+      containers:
+      - image: docker.io/gautierbdev/www.gautierbonnemaison.fr:1.0.0
+        imagePullPolicy: Always
+        name: personal-website
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: my-personal-website
+  name: service-personal-website
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: personal-website
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: my-personal-website
+  name: ingress-personal-website
+  annotations:
+    nginx.ingress.kubernertes.io/rewrite-target: /introduction
+spec:
+  tls:
+  - hosts:
+    - www.gautierbonnemaison.fr
+    secretName: flask-app-tls
+  rules:
+    - host: "www.gautierbonnemaison.fr"
+      http:
+        paths:
+        - path: /introduction
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: /education
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: /experiences
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: /projets
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: /static/images/moi.jpg
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: /static/css/style.css
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: /static/images/logo-wallon.svg
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: /static/images/logo-insa.png
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: /static/images/ILTECH_red_horiz.png
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: /static/images/KCNA-Logo-300x300.png
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path:  /static/images/etic-insa.jpeg
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: /static/images/alstom.png
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: /static/video/demo_keypoints.mp4
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        - path: static/CV_FR.pdf
+          pathType: Prefix
+          backend:
+            service:
+              name: service-personal-website
+              port:
+                number: 80
+        
+
+
