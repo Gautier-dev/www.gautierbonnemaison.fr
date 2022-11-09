@@ -7,16 +7,16 @@
       <div class="card-header">
         <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
           Contrôler des objets connectés avec des mouvements en utilisant seulement
-une camera, Illinois Institute of Technology, été 2021
+une caméra, Illinois Institute of Technology, été 2021
         </a>
       </div>
       <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
         <div class="card-body">
           <div class="row">
             <div class="col-sm-6">
-              <p>Comme vous pouvez le voir dans la video (en Anglais), le ventilateur connecté au Wi-Fi grâce à un ESP32 
+              <p>Comme vous pouvez le voir dans la vidéo (en Anglais), le ventilateur connecté au Wi-Fi grâce à un ESP32 
                 est controlé par un mouvement du bras droit. La camera connectée au Wi-Fi envoit les images à la Jetson Nano sur le réseau.
-                La Jetson Nano grâce au réseau de neurones TRT-pose détecte les keypoints et infere la pose grâce à un réseau de 
+                La Jetson Nano grâce au réseau de neurones TRT-pose détecte les keypoints et déduit la pose grâce à un réseau de 
                 neurones convolutifs à une dimension. Ces informations sont ensuite envoyées grâce à MQTT à Home Assistant qui contrôle le ventilateur
                 connecté avec MQTT également.
               </p>
@@ -37,9 +37,9 @@ une camera, Illinois Institute of Technology, été 2021
             </div>
             <div class="col-sm-6">
               <p>
-                Vous pouvez voir ici la représentation en "keypoints" detectée par le système. Une fois ces keypoints detectés, ils sont envoyés
+                Vous pouvez voir ici la représentation en "keypoints" detectée par le système. Une fois ces keypoints détectés, ils sont envoyés
                 en temps réel avec MQTT à l'interface Web de Home Assistant ci-contre qui les affiche. 
-                La page a été codé en utilisant le framework Lit. L'interface recoit également
+                La page a été codée en utilisant le framework Lit. L'interface reçoit également
                 la pose en l'occcurence Standing, Raise right hand ou Raise left hand.
               </p>
             </div>
