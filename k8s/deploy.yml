@@ -9,15 +9,17 @@ kind: Deployment
 metadata:
   namespace: my-personal-website
   name: deploy-personal-website
+  labels:
+    app: personal-website
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: personal-website
+      app: personal-website
   replicas: 2
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: personal-website
+        app: personal-website
     spec:
       containers:
       - image: docker.io/gautierbdev/www.gautierbonnemaison.fr:1.0.0
@@ -38,7 +40,7 @@ spec:
       protocol: TCP
   type: NodePort
   selector:
-    app.kubernetes.io/name: personal-website
+    app: personal-website
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -46,7 +48,7 @@ metadata:
   namespace: my-personal-website
   name: ingress-personal-website
   annotations:
-    nginx.ingress.kubernertes.io/rewrite-target: /introduction
+    nginx.ingress.kubernetes.io/app-root: /introduction
 spec:
   tls:
   - hosts:
@@ -147,13 +149,16 @@ spec:
               name: service-personal-website
               port:
                 number: 80
-        - path: static/CV_FR.pdf
+        - path: /static/CV_FR.pdf
           pathType: Prefix
           backend:
             service:
               name: service-personal-website
               port:
                 number: 80
+        
+
+
         
 
 
