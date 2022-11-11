@@ -40,6 +40,21 @@ Debug: Ajouter une bordure a tous les elements
     }
 }
 
+@media screen and (max-width: 992px) {
+    #video-keypoints {
+        height: 162px;
+        width: 288px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #video-keypoints, #video-fan {
+        height: 140px;
+        width: 250px;
+    }
+
+}
+
 .card-header {
     display: flex;
     justify-content: space-between;
